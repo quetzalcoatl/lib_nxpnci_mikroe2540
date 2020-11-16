@@ -10,12 +10,23 @@ You've been warned :)
 
 1. Find official code examples for Mikroe-2540, provided by NXP, and download them
   - vendors selling Mikroe-2540 often provide a direct link to those files, read the product description carefully
-  - for example [MIKROE themselves do that](https://www.mikroe.com/nfc-usb-dongle) and they point to [this SW4335.zip on NXP site](http://www.nxp.com/documents/software/SW4335.zip)
+  - for example [MIKROE themselves do that](https://www.mikroe.com/nfc-usb-dongle) and they point to [this file on NXP site](http://www.nxp.com/documents/software/SW4335.zip)
+  - since the file MAY change at NXP's discretion, it may be a nice idea to verify it. When I fetched it, it was:
+    ```
+    File: SW4335.zip
+    Size: 2124977 bytes
+    SHA1: 39D5CF1E9DB260851274E338CDA55D4A71E70D4A
+    ```
 2. Unpack following files from `SW4335.zip`:
   - `NXP-NCI_Windows_example.exe`
   - `NXP-NCI_example_v1.0.zip`
 3. Unpack `NXP-NCI_example_v1.0.zip`
-4. Find **licensing information** in files you've just unpacked. When I fetched it, it was file called `NXP_SLDA.pdf`
+4. Find **licensing information** in files you've just unpacked. When I fetched it, it was:
+    ```
+        File: NXP_SLDA.pdf
+        Size: 179188 bytes
+        SHA1: CC08CEF0846B3F0D23C2EC5318692D68959F22D6
+    ```
 5. Read the licensing carefully, and maybe agree to the terms.
   - **Unless licesing information has changed, reading it should make it clear:**
     - why I cannot just publish the full source code of lib_nxpnci_mikroe2540 on GitHub
