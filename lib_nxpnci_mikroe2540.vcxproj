@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0dd41070-94f4-4283-ae56-456b6b38f071}</ProjectGuid>
+    <RootNamespace>lib_nxpnci_mikroe2540</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(ProjectPath).props" Condition="exists('$(ProjectPath).props')" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\NfcLibrary\NxpNci\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\NfcLibrary\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\NfcTask\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Condition="'$(UseUpdatedLpcusbsio)'!='true'">
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\TML\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Condition="'$(UseUpdatedLpcusbsio)'=='true'">
+      <!-- careful, order is important here -->
+      <AdditionalIncludeDirectories>NXP-NCI_Windows_example\TML\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NXPNFCLinux\linux_libnfc-nci\lpcusbsio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SetupAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\P2P_NDEF.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T1T.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T2T.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T3T.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T4T.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\T4T_NDEF_emu.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NxpNci\src\NxpNci.c">
+      <DisableSpecificWarnings>4703;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\hid.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\tml.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\tml_hid.c" />
+    <!--<ClCompile Include="NXP-NCI_Windows_example\TML\src\lpcusbsio.c" />-->
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\lpcusbsio.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Timer.c" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseUpdatedLpcusbsio)'!='true'">
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Allocator.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Container.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Map.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_mutex.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Parcel.c">
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_thread.c" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseUpdatedLpcusbsio)'=='true'">
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Allocator.c" />
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Container.c" />
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_log.c">
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Map.c" />
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_mutex.c">
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Parcel.c">
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_sem.c" />
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_thread.c" />
+    <!--<ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Timer.c" />-->
+  </ItemGroup>
+  <ItemGroup Condition="'$(ConfigurationType)'=='Application'">
+    <ClCompile Include="NXP-NCI_Windows_example\Application\main.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcTask\src\ndef_helper.c" />
+    <ClCompile Include="NXP-NCI_Windows_example\NfcTask\src\nfc_task.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\inc\Nfc.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\inc\Nfc_settings.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\P2P_NDEF.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T1T.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T2T.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T3T.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T4T.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\T4T_NDEF_emu.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NxpNci\inc\NxpNci.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\hidapi.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tml.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tml_hid.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tool.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Timer.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseUpdatedLpcusbsio)'!='true'">
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Allocator.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Container.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Interface.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Map.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Parcel.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_windows.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\lpcusbsio.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\lpcusbsio_i2c.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseUpdatedLpcusbsio)'=='true'">
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Allocator.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Container.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Interface.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_linux.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Map.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Parcel.h" />
+    <!--<ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\framework_Timer.h" />-->
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\lpcusbsio.h" />
+    <ClInclude Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\lpcusbsio_i2c.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(ConfigurationType)'=='Application'">
+    <ClInclude Include="NXP-NCI_Windows_example\NfcTask\inc\ndef_helper.h" />
+    <ClInclude Include="NXP-NCI_Windows_example\NfcTask\inc\nfc_task.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib_nxpnci_mikroe2540.vcxproj.props" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

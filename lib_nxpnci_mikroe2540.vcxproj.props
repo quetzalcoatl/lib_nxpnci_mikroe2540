@@ -1,0 +1,73 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!--
+    Remember that after changing `lib_nxpnci_mikroe2540.vcxproj.props` you have to at least affected projects.
+    It is best to just close and reopen all affcted projects and/or solutions.
+    Otherwise, Visual Studio may not notice the change and keep building previous selection of files.
+    -->
+    <UseUpdatedLpcusbsio>true</UseUpdatedLpcusbsio>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile Label="Library build configuration: lib_nxpnci_mikroe2540">
+      <!-- Card Emulation mode support -->
+      <PreprocessorDefinitions>CARDEMU_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!--<PreprocessorDefinitions>CARDEMU_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- P2P, Peer-to-Peer mode support -->
+      <PreprocessorDefinitions>P2P_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+
+      <!-- Tag Reader-Writer mode support -->
+      <PreprocessorDefinitions>RW_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!--<PreprocessorDefinitions>RW_NDEF_WRITING;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>RW_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- Disable NDEF support, disables most of RW features -->
+      <!--<PreprocessorDefinitions>NO_NDEF_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- NCI_DEBUG and HID_DEBUG spam a lot -->
+      <!--<PreprocessorDefinitions>NCI_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>HID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- Use HID definitions from DDK; uses local definitions if not enabled -->
+      <!--<PreprocessorDefinitions>HIDAPI_USE_DDK;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      
+      <!-- Mark hidapi.h functions with __declspec(dllexport) -->
+      <!--<PreprocessorDefinitions>HID_API_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- Mark lpcusbsio.h functions with __declspec(dllexport) or __declspec(dllimport) -->
+      <!--<PreprocessorDefinitions>LPCUSBSIO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>LPCUSBSIO_IMPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+
+      <!-- unknown, P32 is hardcoded as 'enabled', see TML\src\hid.c	lines 867-869 -->
+      <!--<PreprocessorDefinitions>PICPGM;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>S11;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>P32;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <!-- END OF CONFIGURATION -->
+
+  <ItemDefinitionGroup 
+    Label="Helper for easier compiling with: lib_nxpnci_mikroe2540"
+    Condition="'$(ProjectGuid)' != '{0DD41070-94F4-4283-AE56-456B6B38F071}' AND '$(ProjectGuid)' != '{0dd41070-94f4-4283-ae56-456b6b38f071}' AND exists('$(MSBuildThisFileDirectory)\lib_nxpnci_mikroe2540.vcxproj')">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)\NXP-NCI_Windows_example\NfcLibrary\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup
+    Label="Helper for easier linking with: lib_nxpnci_mikroe2540"
+    Condition="'$(ProjectGuid)' != '{0DD41070-94F4-4283-AE56-456B6B38F071}' AND '$(ProjectGuid)' != '{0dd41070-94f4-4283-ae56-456b6b38f071}' AND exists('$(MSBuildThisFileDirectory)\lib_nxpnci_mikroe2540.vcxproj')">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)\lib_nxpnci_mikroe2540.vcxproj">
+      <Project>{0DD41070-94F4-4283-AE56-456B6B38F071}</Project>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemDefinitionGroup 
+    Label="Helper for easier linking with: lib_nxpnci_mikroe2540"
+    Condition="'$(ProjectGuid)' != '{0DD41070-94F4-4283-AE56-456B6B38F071}' AND '$(ProjectGuid)' != '{0dd41070-94f4-4283-ae56-456b6b38f071}'">
+    <Link>
+      <AdditionalDependencies>SetupAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

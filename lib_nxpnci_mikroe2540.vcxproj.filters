@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\P2P_NDEF.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T1T.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T2T.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T3T.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\RW_NDEF_T4T.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\src\T4T_NDEF_emu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\NfcLibrary\NxpNci\src\NxpNci.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Allocator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Container.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Map.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_mutex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Parcel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_thread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\framework_Timer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\hid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\tml.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXP-NCI_Windows_example\TML\src\tml_hid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NXPNFCLinux\linux_libnfc-nci\lpcusbsio\lpcusbsio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\inc\Nfc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\inc\Nfc_settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\P2P_NDEF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T1T.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T2T.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T3T.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\RW_NDEF_T4T.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NdefLibrary\inc\T4T_NDEF_emu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\NfcLibrary\NxpNci\inc\NxpNci.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Allocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Parcel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\framework_windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\hidapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\lpcusbsio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\lpcusbsio_i2c.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tml_hid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NXP-NCI_Windows_example\TML\inc\tool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib_nxpnci_mikroe2540.vcxproj.props" />
+  </ItemGroup>
+</Project>
