@@ -34,15 +34,16 @@ You've been warned :)
     - why you had to find a link to `SW4335.zip` on vendor's site
     - why the vendor could not publish `SW4335.zip` and had to publish a link to NXP's site
     - why you had to download `SW4335.zip` by yourself, from NXP, and maybe agree to the terms before using it
-6. 🔴If you **do not agree** to follow those licensing terms, you're on your own.  
-   Find a way to obtain `SW4335.zip` examples under a different license. Otherwise, best to assume this project is not suitable for you due to licensing and find another SDK for Mikroe-2540.  
+6. ⭕If you **do not agree** to follow those licensing terms, well..  
+   Find a way to obtain `SW4335.zip` examples under a different license.  
+   Or assume this project is not suitable for you due to licensing and find another SDK for Mikroe-2540.  
    Either way, if you succeed, please let me know!
-7. 🔴There is a slight chance that I misunderstood the license.  
+7. ⭕There is a slight chance that I misunderstood the license.  
    In such case, I may have to strip information and/or resources contained in this repository even further, or even take this repository down.  
    Consider now-famous case of [youtube downloader project being taken down](https://en.wikipedia.org/wiki/Youtube-dl).  
    Things happen when IP lawsuits begin to show up on the horizon.
 8. Verify that `NXP-NCI_Windows_example.exe` works with your dongle.  
-  🔴 **If it does not work, then probably the code will not work either.**  
+  ⭕ **If it does not work, then probably the code will not work either.**  
   If you've got problems running this demo app, or connecting Mikroe-2540 to your computer, etc, `QuickStartGuide_Windows.pdf` has some general hints.
 9. Remember `NXP-NCI_Windows_example` folder from `SW4335.zip`.  
     This is the source code of the demo application you've seen already, `NXP-NCI_Windows_example.exe`.  
