@@ -68,8 +68,12 @@ You've been warned :)
 4. (optional) Ensure `Platform` filter is set to `All Platforms`
 5. Change `General\Configuration Type` to `Static library (.lib)`
 6. Adjust any other flags as needed, see [details](Compile-time-configuration)
-7. (optional) Reload Projects or Solutions to make sure VS refreshed all options and file lists
+7. 🔶 Reload Projects or Solutions to make sure VS refreshed all options and file lists *)
 8. Try building just this project. It should succeed and produce a static library, `lib_nxpnci_mikroe2540.lib`
+
+*) Yeah, it sounds strange. You've just used project's Property-Pages to just switch ConfigurationType. Usually, VS handles it very well. However, `lib_nxpnci_mikroe2540.vcxproj` contains a few `Condition`s **) based on `ConfigurationType` that VS2019 does not handle well. These conditions include/exclude some files to/from the project, and VS seems oblivious to that. If you don't unload/reload the project, VS won't update file lists properly.
+
+**) Yes, I know that it's possible to use `Configuration|Platform` for that. I chose Conditions because, let's face it, in 99% of the cases we won't be switching from staticlib back to demoapp, ever, and the extra build configurations would be just a dead weight.
 
 # Building as a dynamic library
 
@@ -96,48 +100,97 @@ By default, all options are set to their default state as in `SW4335.zip`, as se
 
 Just comment/uncomment relevant lines. Below you can find a short summary of options and their effects, if effects are known.
 
-TODO - begin
+Also [check out AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf). While it doesn't refer to Mikroe-2540, a lot of information contained there still applies, like compilation flags, demo app scenarios, etc. Use with care though, as that AN refers to a different board cooperating with a very similar 'examples' code.
 
-File/version selection
-- UseUpdatedLpcusbsio  
-  Default: `false`, builds original code from `SW4335.zip`, except for `lpcusbsio.c` (see other notes below for details). When `true`, project uses updated `lpcusbsio` from `Linux NFC Stack`; keep in mind that it requires `pthread.h` to be available - probably the easiest way is via `vcpkg` [see also here](https://stackoverflow.com/a/63266134/717732)  
-  Note: it's best to reload project/solution after changing this flag to force VisualStudio to reload project file lists.
+## File/version selection
+- `UseUpdatedLpcusbsio`: false|true, default: false  
+  When `false`, builds original code from `SW4335.zip`, except for `lpcusbsio.c` (see other notes below for details).  
+  When `true`, project uses updated `lpcusbsio` from `Linux NFC Stack`  
+  Keep in mind that updated `lpcusbsio` requires `pthread.h` to be available, probably the easiest way is via `vcpkg` [see also here](https://stackoverflow.com/a/63266134/717732). Also, I've had to adjust it a bit to actually compile on VS2019 compiler.  
 
-Card Emulation mode support
-- CARDEMU_SUPPORT
-- CARDEMU_RAW_EXCHANGE
+🔶Note: it's best to reload project/solution after changing this flag to force VisualStudio to reload project file lists. *) and **) apply here as well.
 
-P2P, Peer-to-Peer mode support
-- P2P_SUPPORT
+## Support for Card Emulation mode
+- `CARDEMU_SUPPORT`: #define flag
+  Enables support for Card Emulation mode.  
+  Enables Card Emulation scenarios when building as the demo app.
 
-Tag Reader-Writer mode support
-- RW_SUPPORT
-- RW_NDEF_WRITING
-- RW_RAW_EXCHANGE
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 12 para 4.3
 
-Disable NDEF support (disables most of RW features)
-- NO_NDEF_SUPPORT
+## Support for P2P, Peer-to-Peer mode
+- `P2P_SUPPORT`: #define flag
+  Enables support for P2P communication mode.  
+  Enables P2P scenarios when building as the demo app.
 
-Spam-a-lot
-- NCI_DEBUG
-- HID_DEBUG
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 10 para 4.2, and also page 21 para 6.10
 
-Use HID definitions from DDK; uses local definitions if not enabled
-- HIDAPI_USE_DDK
+## Support for RW, Tag Reader-Writer mode
+- `RW_SUPPORT`: #define flag  
+  Enables support for acting as a NFC Tag Reader-Writer mode.  
+  Enables RW scenarios when building as the demo app.
 
-Mark hidapi.h functions with __declspec(dllexport)
-- HID_API_EXPORTS
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 10 para 4.1
 
-Mark lpcusbsio.h functions with __declspec(dllexport) or __declspec(dllimport)
-- LPCUSBSIO_EXPORTS
-- LPCUSBSIO_IMPORTS
+## Support for NDEF
+- `NO_NDEF_SUPPORT`: #define flag  
+  A curiosity. It effectively disables most of RW features and reduces the `RW_SUPPORT` to just discovered/gone notification with no data transfer. I don't understand the reason for this compile-time option. I've tried tracking what actually is being disabled, and it may be possible that the PN7150 chip somehow assists in handling NDEF messages, and that some version of the chip may lack this features while providing support for other.. no idea, really.  
+  Sadly, AN11990 is silent on that matter as well.
 
-Unknown, P32 is hardcoded as 'enabled', see TML\src\hid.c	lines 867-869
-- PICPGM
-- S11
-- P32
+## Options specific to the Demo App
 
-TODO - end
+- `RW_NDEF_WRITING`: #define flag  
+  Has effect only when communication ends up using T1,T2,T3,T4/ISODEP protocol.  
+  Ignored when `RW_RAW_EXCHANGE` is enabled.  
+  Instructs the demo app to try writing some test NDEF data to the NFC tag.  
+  🔶That means that current data present on the tag may be damaged.
+
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 20 para 6.8 for a quick overview of that scenario.
+
+- `RW_RAW_EXCHANGE`: #define flag  
+  Disables NDEF read/write operations in T1,T2,T3,T4/ISODEP.  
+  Enables scenarios listed below.
+  - PCD-MIFARE for Mifare
+  - PCD-ISO-15693 for ISO-15693
+  - PCD-ISO-14443-3A for T2 protocol
+  - PCD-ISO-14443-4 for T4/ISODEP protocol
+
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 19 para 6.6 for a quick overview what each scenario presents.  
+  Each of those scenarios, except T4/ISODEP, tries writing something to the NFC tag.  
+  🔶That means that current data present on the tag may be damaged.
+
+- `CARDEMU_RAW_EXCHANGE`: #define flag  
+  Disables NDEF operations in Card Emulation mode.  
+  Enables scenarios listed below.
+  - PICC_ISO14443_4 for T4/ISODEP
+
+  See [AN11990](https://www.nxp.com/docs/en/application-note/AN11990.pdf) page 20 para 6.7 for a quick overview of that scenario.
+
+## Hex-dumping packets to console
+- `NCI_DEBUG`: #define flag  
+  Enable hexdumps from NxpNci layer.
+
+- `HID_DEBUG`: #define flag  
+  Enable hexdumps from HID layer.
+
+## Building with DDK
+- `HIDAPI_USE_DDK`: #define flag
+  If not defined, project uses local definitions of some structures and `hid.dll` from the OS.  
+  If defined, project relies on `#include <hidsdi.h>` from the DDK instead.
+
+## HIDAPI as DLL
+- `HID_API_EXPORTS`: #define flag  
+  Mark `hidapi.h` functions with `__declspec(dllexport)`
+
+## LpcUsbSIO as DLL
+- `LPCUSBSIO_EXPORTS`: #define flag
+- `LPCUSBSIO_IMPORTS`: #define flag  
+  Mark `lpcusbsio.h` functions with `__declspec(dllexport)` or `__declspec(dllimport)`
+
+## Other flags
+- `PICPGM`: #define flag
+- `S11`: #define flag
+- `P32`: #define flag  
+  First two are of unknown meaning. Last one is enabled by default, hardcoded within TML\src\hid.c lines 867-869
 
 # Other notes, relations to other SDKs, etc
 

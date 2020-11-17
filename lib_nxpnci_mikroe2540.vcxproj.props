@@ -12,15 +12,17 @@
     <ClCompile Label="Library build configuration: lib_nxpnci_mikroe2540">
       <!-- Card Emulation mode support -->
       <PreprocessorDefinitions>CARDEMU_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <!--<PreprocessorDefinitions>CARDEMU_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
 
       <!-- P2P, Peer-to-Peer mode support -->
       <PreprocessorDefinitions>P2P_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 
       <!-- Tag Reader-Writer mode support -->
       <PreprocessorDefinitions>RW_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+
+      <!-- DemoApp options -->
       <!--<PreprocessorDefinitions>RW_NDEF_WRITING;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
       <!--<PreprocessorDefinitions>RW_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
+      <!--<PreprocessorDefinitions>CARDEMU_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
 
       <!-- Disable NDEF support, disables most of RW features -->
       <!--<PreprocessorDefinitions>NO_NDEF_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
