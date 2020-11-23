@@ -19,7 +19,7 @@
       <!-- Tag Reader-Writer mode support -->
       <PreprocessorDefinitions>RW_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 
-      <!-- DemoApp options -->
+      <!-- DemoApp options: all three MAY WRITE DATA to the tag, use with care -->
       <!--<PreprocessorDefinitions>RW_NDEF_WRITING;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
       <!--<PreprocessorDefinitions>RW_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
       <!--<PreprocessorDefinitions>CARDEMU_RAW_EXCHANGE;%(PreprocessorDefinitions)</PreprocessorDefinitions>-->
